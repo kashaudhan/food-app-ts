@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
 import React, { useState, useReducer, useEffect } from "react";
 import * as Location from "expo-location";
+
+import { useNavigation } from '../utils'
+
 const screenWidth = Dimensions.get("screen").width;
 
 const LandingScreen = () => {
+  const { navigate } = useNavigation();
   const [errorMsg, setErrorMsg] = useState("");
   const [address, setAddress] = useState<Location.LocationGeocodedAddress>();
   const [displayAddress, setDisplayAddress] = useState("");
@@ -27,6 +31,11 @@ const LandingScreen = () => {
           setAddress(item);
           let currentAddress = `${item.name}, ${item.street}, ${item.postalCode}, ${item.country}`;
           setDisplayAddress(currentAddress);
+          if (currentAddress.length > 0) {
+            setTimeout(() => {
+              navigate('homeStack')
+            }, 5000);
+          }
           return;
         }
       }
@@ -46,7 +55,7 @@ const LandingScreen = () => {
         <View style={styles.addressContainer}>
           <Text style={styles.addressTitle}>Your Delivery Address</Text>
         </View>
-        <Text style={styles.addressText}>Waiting for Current Location</Text>
+        <Text style={styles.addressText}>{displayAddress}</Text>
       </View>
       <View style={styles.footer}>
         <Text>Footer</Text>

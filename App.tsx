@@ -37,7 +37,7 @@ const switchNavigator = createSwitchNavigator({
     },
     Offer: {
       screen: createStackNavigator({
-        HomePage: HomeScreen,
+        OfferPage: HomeScreen,
       }),
       navigationOptions: {
         tabBarIcon: ({ focused, tintColor }) => {
@@ -51,7 +51,7 @@ const switchNavigator = createSwitchNavigator({
     },
     Cart: {
       screen: createStackNavigator({
-        HomePage: HomeScreen,
+        CartPage: HomeScreen,
       }),
       navigationOptions: {
         tabBarIcon: ({ focused, tintColor }) => {
@@ -65,7 +65,7 @@ const switchNavigator = createSwitchNavigator({
     },
     Account: {
       screen: createStackNavigator({
-        HomePage: HomeScreen,
+        AccountPage: HomeScreen,
       }),
       navigationOptions: {
         tabBarIcon: ({ focused, tintColor }) => {
