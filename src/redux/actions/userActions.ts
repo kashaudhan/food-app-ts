@@ -4,7 +4,9 @@ import { Dispatch } from "react";
 
 export interface UpdateLocationAction {
   readonly type: "ON_UPDATE_LOCATION";
-  payload: LocationGeocodedAddress;
+  payload: LocationGeocodedAddress
+
+
 }
 
 export interface UpdateErrorAction {
